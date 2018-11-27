@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘商城</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+</head>
+<body class="body_bg">
+  <!-- 这里结构划分是：
+  首先先准备一个响应式容器，
+  大屏的时候占四份，中屏宽度百分之百，小屏也是百分之百，
+  即大屏占四份，其他屏占12份
+  使用bootstrap的组件里的面板，带标题的面板 -->
+  <div class="container">
+    <div class="col-lg-4 col-lg-offset-4 mt-150">
+      <!-- bootstrap组件里面的面板 -->
+      <!-- 
+      XX-default默认颜色
+      XX-primary 深蓝色
+      XX-danger 红色
+      XX-success 绿色
+      XX-info 浅蓝色
+      XX-warning 黄色 -->
+
+      <div class="panel panel-primary">
+        <!-- 上面部分 -->
+        <div class="panel-heading">
+          <h3 class="panel-title">后台管理系统</h3>
+        </div>
+        <!-- 下面部分 -->
+        <!-- 这里用bootstrap里的全局css样式里的表单，水平排列表单 -->
+        <div class="panel-body">
+          <!-- 结构是：bootstrap的格式规范，要求当前form表单里有若干个form-grounp。这里有四个form-grounp，分别是两个input输入框，和一个记住密码的选项还有一个按钮，这里只需要两个输入框和两个按钮。去掉第三个form-grounp，在最后一个form-grounp里再加一个按钮。-->
+            <form class="form-horizontal">
+              <!-- 用户名区域 -->
+                <div class="form-group">
+                  <!-- 这里的label标签是和表单关联的，这里的for是和后面的id关联起来的，将for="inputEmail3"修改为for="username",下面对应的id也修改为username-->
+                  <!-- 这里的col-sm-2类是控制label标签在小屏的时候的大小的。将其修改为3，文字就不会掉下来了，对应的后面的输入框在小屏所占的份数为9，将控制输入框的col值修改为col-sm-9 -->
+                  <label for="username" class="col-sm-3 control-label">用户名：</label>
+                  <div class="col-sm-9">
+                    <!-- 这里有一个注意点。type不能等于email，因为这里需要输入的是文本格式的内容，需要将type修改为text。如果输入别的内容，会有一个输入邮箱个格式的提醒。 -->
+                    <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                  </div>
+                </div>
+             <!-- 密码区域   密码区域和上面一样修改-->
+                <div class="form-group">
+                  <!-- 这里密码两个字中间需要一点距离分开，这里在输入法的全半角模式下输入一个空格即可，全半角模式下的一个空格，默认是一个文字的大小-->
+                  <label for="password" class="col-sm-3 control-label">密　码：</label>
+                  <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                  </div>
+                </div>
+              <!-- 按钮区域 -->
+                <div class="form-group">
+                  <!-- 将按钮的列偏移改为3 ，在这里令按钮占6份，然后令两个按钮左右浮动即可。-->
+                  <div class="col-sm-offset-3 col-sm-6">
+                    <button type="reset" class="btn btn-default pull-left">重置</button>
+                    <!-- 这个按钮背景颜色是深蓝色，加一个btn-primary类即可，pull-right 是右浮动 -->
+                    <button type="submit" class="btn btn-primary pull-right">登录</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
