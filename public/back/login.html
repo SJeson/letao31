@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="CN">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>乐淘商城</title>
+  <title>乐淘</title>
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <!-- 引入bootstrap-validator的css文件注意bootstrap-validator是bootstrap插件，因此依赖与bootstrap。将表单校验的文件放到bootstrap的css文件的下面 -->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
 </head>
 <body class="body_bg">
   <!-- 这里结构划分是：
@@ -35,7 +36,8 @@
         <!-- 这里用bootstrap里的全局css样式里的表单，水平排列表单 -->
         <div class="panel-body">
           <!-- 结构是：bootstrap的格式规范，要求当前form表单里有若干个form-grounp。这里有四个form-grounp，分别是两个input输入框，和一个记住密码的选项还有一个按钮，这里只需要两个输入框和两个按钮。去掉第三个form-grounp，在最后一个form-grounp里再加一个按钮。-->
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="form">
+              <!-- 表单校验用到bootstrap里的一个插件bootstrapValidation,需要引入css和js文件-->
               <!-- 用户名区域 -->
                 <div class="form-group">
                   <!-- 这里的label标签是和表单关联的，这里的for是和后面的id关联起来的，将for="inputEmail3"修改为for="username",下面对应的id也修改为username-->
@@ -43,7 +45,8 @@
                   <label for="username" class="col-sm-3 control-label">用户名：</label>
                   <div class="col-sm-9">
                     <!-- 这里有一个注意点。type不能等于email，因为这里需要输入的是文本格式的内容，需要将type修改为text。如果输入别的内容，会有一个输入邮箱个格式的提醒。 -->
-                    <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+                    <!-- 给两个input加上name属性 ，name="username" name="password",发送给后台接收 -->
+                    <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username">
                   </div>
                 </div>
              <!-- 密码区域   密码区域和上面一样修改-->
@@ -51,7 +54,8 @@
                   <!-- 这里密码两个字中间需要一点距离分开，这里在输入法的全半角模式下输入一个空格即可，全半角模式下的一个空格，默认是一个文字的大小-->
                   <label for="password" class="col-sm-3 control-label">密　码：</label>
                   <div class="col-sm-9">
-                    <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                    <!-- 给两个input加上name属性 ，name="username" name="password",发送给后台接收 -->
+                    <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
                   </div>
                 </div>
               <!-- 按钮区域 -->
@@ -68,9 +72,11 @@
       </div>
     </div>
   </div>
-
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 将表单校验的文件放到bootstrap的文件下面 -->
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
