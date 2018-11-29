@@ -114,7 +114,7 @@ $(function () {
 
         if (info.success) {
           // 登录成功
-          // location.href = "index.html"
+          location.href = "index.html"
         }
         // 注意这里的按钮是submit按钮，但是点击按钮之后需要注册一个表单校验成功事件，当校验成功的时候，需要阻止跳转，发送ajax请求，后台获取到传递过去的信息，之后进行判断，然后将信息返回给用户
       }
